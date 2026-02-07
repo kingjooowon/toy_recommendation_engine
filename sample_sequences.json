@@ -1,0 +1,5 @@
+{
+  "u1": ["login", "view", "purchase"],
+  "u2": ["login", "view", "add_to_cart"],
+  "u3": ["login", "view"]
+}
