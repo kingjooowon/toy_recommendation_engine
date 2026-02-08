@@ -1,5 +1,5 @@
 import json, os
-from recommender import build_transition_table, build_probability_table, recommend_next
+from recommender import build_transition_table, build_probability_table, recommend_next, recommend_next_random
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(BASE_DIR, "sample_sequences.json")
@@ -20,4 +20,5 @@ if __name__ == "__main__":
             print(f"{curr} -> {nxt} ({count})")
             
     print("\nRecommendation: ")
-    print(f"After 'view' -> {recommend_next_view}({probabilities["view"][recommend_next_view]})")
+    print(f"After 'view' -> {recommend_next_view}({probabilities['view'][recommend_next_view]})")
+    print(f"After 'view' -> (Random) {recommend_next_random(probabilities, 'view')}")

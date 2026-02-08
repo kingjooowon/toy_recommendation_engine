@@ -1,3 +1,5 @@
+import random
+
 def build_transition_table(sequences):
     transition = {}
     
@@ -34,3 +36,12 @@ def recommend_next(transitions, event):
         return None
     
     return max(transitions[event], key=transitions[event].get)
+
+def recommend_next_random(probabilities, event):
+    if event not in probabilities:
+        return None
+    
+    next_events = list(probabilities[event].keys())
+    probs = list(probabilities[event].values())
+    
+    return random.choices(next_events, weights=probs, k=1)[0]
